@@ -17,8 +17,14 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6; color: #333; overflow-x: hidden;
             background-color: var(--japan-cream);
+            /* ФОТО ЗАКАТА КАК ФОН */
             background-image: 
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23bc002d' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('sushi-sunset.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
         header {
             background: linear-gradient(135deg, var(--japan-red) 0%, #8b0000 100%);
@@ -50,11 +56,10 @@
         }
         .hero {
             margin-top: 77px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1920&h=800&fit=crop');
-            background-size: cover; background-position: center;
+            background: rgba(0, 0, 0, 0.6);
             color: white; padding: 6rem 2rem; text-align: center;
             position: relative;
+            border-radius: 0 0 20px 20px;
         }
         .hero::before {
             content: '🌸';
@@ -89,11 +94,16 @@
         .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(188,0,45,0.6); }
         .menu { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
         .section-title {
-            text-align: center; font-size: 2.5rem; color: var(--japan-red); margin-bottom: 2rem;
+            text-align: center; font-size: 2.5rem; color: white; margin-bottom: 2rem;
             position: relative;
             display: inline-block;
             left: 50%;
             transform: translateX(-50%);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background: rgba(188, 0, 45, 0.8);
+            padding: 0.5rem 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--gold);
         }
         .section-title::after {
             content: '🍣';
@@ -113,13 +123,15 @@
             display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem;
         }
         .menu-item {
-            background: white; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s;
-            border: 1px solid #e0d5c5;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px; overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3); transition: all 0.3s;
+            border: 1px solid var(--gold);
+            backdrop-filter: blur(10px);
         }
         .menu-item:hover {
-            transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border-color: var(--gold);
+            transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border-color: var(--japan-red);
         }
         .menu-item img { 
             width: 100%; 
@@ -146,10 +158,11 @@
         .add-to-cart:hover { background: #8b0000; }
         .contact {
             padding: 4rem 2rem; 
-            background: linear-gradient(135deg, var(--japan-red), #8b0000);
+            background: rgba(188, 0, 45, 0.9);
             color: white;
             border-top: 3px solid var(--gold);
             border-bottom: 3px solid var(--gold);
+            backdrop-filter: blur(10px);
         }
         .contact-info { max-width: 600px; margin: 2rem auto; }
         .contact-item {
@@ -159,8 +172,9 @@
         }
         .contact-item i { font-size: 2rem; color: var(--gold); }
         footer { 
-            background: var(--dark); color: white; text-align: center; padding: 2rem;
+            background: rgba(0, 0, 0, 0.8); color: white; text-align: center; padding: 2rem;
             border-top: 3px solid var(--gold);
+            backdrop-filter: blur(10px);
         }
         
         .lightbox {
