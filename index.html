@@ -62,8 +62,8 @@
         /* Hero Section */
         .hero {
             margin-top: 70px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f4f4f4" width="1200" height="600"/><text fill="%23999" font-size="30" x="50%" y="50%" text-anchor="middle">Суши и рыба</text></svg>');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1200&h=600&fit=crop');
             background-size: cover;
             background-position: center;
             color: white;
@@ -74,11 +74,13 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .btn {
@@ -113,7 +115,7 @@
 
         .menu-categories {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
             margin-bottom: 3rem;
         }
@@ -130,30 +132,45 @@
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 3px solid #ff6b6b;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .menu-item {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-            transition: background 0.3s;
+            gap: 1rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            background: #f9f9f9;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .menu-item:hover {
-            background: #f9f9f9;
-            padding-left: 10px;
-            border-radius: 5px;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #f0f0f0;
         }
 
-        .menu-item:last-child {
-            border-bottom: none;
+        .menu-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+
+        .item-info {
+            flex: 1;
         }
 
         .item-name {
             font-weight: 600;
             color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
         }
 
         .item-price {
@@ -162,10 +179,43 @@
             font-size: 1.2rem;
         }
 
-        /* About Section */
-        .about {
+        /* Gallery Section */
+        .gallery {
             background: #f4f4f4;
             padding: 4rem 2rem;
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 300px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            background: white;
         }
 
         .about-content {
@@ -256,6 +306,16 @@
             .menu-categories {
                 grid-template-columns: 1fr;
             }
+
+            .menu-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .menu-item img {
+                width: 100%;
+                height: 200px;
+            }
         }
 
         /* Order Button */
@@ -288,6 +348,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#menu">Меню</a></li>
+                <li><a href="#gallery">Галерея</a></li>
                 <li><a href="#about">О нас</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
@@ -316,28 +377,43 @@
                 <h2>🍣 Суши</h2>
                 
                 <div class="menu-item">
-                    <span class="item-name">Калифорния</span>
-                    <span class="item-price">890 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=200&h=200&fit=crop" alt="Калифорния">
+                    <div class="item-info">
+                        <div class="item-name">Калифорния</div>
+                        <div class="item-price">890 ₽</div>
+                    </div>
                 </div>
                 
                 <div class="menu-item">
-                    <span class="item-name">Филадельфия</span>
-                    <span class="item-price">950 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=200&h=200&fit=crop" alt="Филадельфия">
+                    <div class="item-info">
+                        <div class="item-name">Филадельфия</div>
+                        <div class="item-price">950 ₽</div>
+                    </div>
                 </div>
                 
                 <div class="menu-item">
-                    <span class="item-name">Темпура креветка</span>
-                    <span class="item-price">1050 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=200&h=200&fit=crop" alt="Темпура креветка">
+                    <div class="item-info">
+                        <div class="item-name">Темпура креветка</div>
+                        <div class="item-price">1050 ₽</div>
+                    </div>
                 </div>
                 
                 <div class="menu-item">
-                    <span class="item-name">Нигири лосось</span>
-                    <span class="item-price">780 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=200&h=200&fit=crop" alt="Нигири лосось">
+                    <div class="item-info">
+                        <div class="item-name">Нигири лосось</div>
+                        <div class="item-price">780 ₽</div>
+                    </div>
                 </div>
                 
                 <div class="menu-item">
-                    <span class="item-name">Нигири тунец</span>
-                    <span class="item-price">680 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=200&h=200&fit=crop" alt="Нигири тунец">
+                    <div class="item-info">
+                        <div class="item-name">Нигири тунец</div>
+                        <div class="item-price">680 ₽</div>
+                    </div>
                 </div>
             </div>
 
@@ -346,14 +422,45 @@
                 <h2>🐟 Вяленая рыба</h2>
                 
                 <div class="menu-item">
-                    <span class="item-name">Вяленый кальмар</span>
-                    <span class="item-price">840 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=200&h=200&fit=crop" alt="Вяленый кальмар">
+                    <div class="item-info">
+                        <div class="item-name">Вяленый кальмар</div>
+                        <div class="item-price">840 ₽</div>
+                    </div>
                 </div>
                 
                 <div class="menu-item">
-                    <span class="item-name">Вяленая скумбрия</span>
-                    <span class="item-price">1290 ₽</span>
+                    <img src="https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=200&h=200&fit=crop" alt="Вяленая скумбрия">
+                    <div class="item-info">
+                        <div class="item-name">Вяленая скумбрия</div>
+                        <div class="item-price">1290 ₽</div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">Наши Продукты</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&h=400&fit=crop" alt="Суши">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=600&h=400&fit=crop" alt="Роллы">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=600&h=400&fit=crop" alt="Рыба">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=600&h=400&fit=crop" alt="Филадельфия">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=600&h=400&fit=crop" alt="Темпура">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&h=400&fit=crop" alt="Нигири">
             </div>
         </div>
     </section>
@@ -390,7 +497,7 @@
             </div>
             
             <div class="contact-card">
-                <h3> Адрес</h3>
+                <h3>📍 Адрес</h3>
                 <p>Ваш город, улица, дом</p>
             </div>
         </div>
@@ -421,7 +528,7 @@
             });
         });
 
-        // Mobile menu toggle (basic)
+        // Mobile menu toggle
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         
