@@ -17,7 +17,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6; color: #333; overflow-x: hidden;
             background-color: var(--japan-cream);
-            /* ФОТО ЗАКАТА КАК ФОН */
             background-image: 
                 linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
                 url('sushi-sunset.jpg');
@@ -135,16 +134,18 @@
         }
         .menu-item img { 
             width: 100%; 
-            height: 200px;
+            height: 220px;
             object-fit: contain;
-            background: #f9f9f9;
-            padding: 10px;
+            background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+            padding: 15px;
             transition: transform 0.5s ease;
             image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            filter: contrast(1.05) saturate(1.1);
             cursor: pointer;
         }
         .menu-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
         .item-content { padding: 1.5rem; }
         .item-name { font-weight: bold; font-size: 1.3rem; color: var(--dark); margin-bottom: 0.5rem; }
@@ -294,103 +295,85 @@
 
     <section class="hero" id="home">
         <h1>🍣 Cityfood - Доставка суши</h1>
-        <p>Свежие и вкусные суши с доставкой</p>
+        <p>Свежие и вкусные роллы и суши с доставкой</p>
         <a href="#menu" class="btn">Смотреть меню</a>
     </section>
 
     <section class="menu" id="menu">
         <h2 class="section-title">Наше Меню</h2>
 
-        <!-- Запечёные роллы -->
-        <div class="menu-category">
-            <div class="category-header">🔥 Запечёные роллы</div>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://i.ibb.co/sdVDJKLb/baked-rolls.jpg" alt="Запечёные роллы" loading="lazy" onclick="openLightbox(this.src)">
-                    <div class="item-content">
-                        <div class="item-name">Запечёные роллы</div>
-                        <div class="item-desc">Три вида: с крабом, лососем, креветками (8 шт)</div>
-                        <div class="item-footer">
-                            <div class="item-price">499 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Запечёные роллы', 499, 'https://i.ibb.co/sdVDJKLb/baked-rolls.jpg')">В корзину</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Роллы -->
         <div class="menu-category">
             <div class="category-header">🍣 Роллы</div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/tWKRsGR/california-roll.jpg" alt="Калифорния ролл" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="california-roll.jpg" alt="Калифорния ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Калифорния ролл</div>
                         <div class="item-desc">Краб, огурец, авокадо, икра масаго (8 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">449 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Калифорния ролл', 449, 'https://i.ibb.co/tWKRsGR/california-roll.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Калифорния ролл', 449, 'california-roll.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/Xx8t72dF/philadelphia-roll.jpg" alt="Филадельфия ролл" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="philadelphia-roll.jpg" alt="Филадельфия ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Филадельфия ролл</div>
                         <div class="item-desc">Творожный сыр, огурец, лосось (8 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">499 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Филадельфия ролл', 499, 'https://i.ibb.co/Xx8t72dF/philadelphia-roll.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Филадельфия ролл', 499, 'philadelphia-roll.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/tpFGT0kZ/kyoto-roll.jpg" alt="Киото ролл" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="kyoto-roll.jpg" alt="Киото ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Киото ролл</div>
                         <div class="item-desc">Жареный лосось, томат, салат свежий (8 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">449 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Киото ролл', 449, 'https://i.ibb.co/tpFGT0kZ/kyoto-roll.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Киото ролл', 449, 'kyoto-roll.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/n8twsDYy/surimi-roll.jpg" alt="Сурими ролл" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="surimi-roll.jpg" alt="Сурими ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сурими ролл</div>
                         <div class="item-desc">Лосось, краб, творожный сыр, авокадо (8 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">449 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Сурими ролл', 449, 'https://i.ibb.co/n8twsDYy/surimi-roll.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Сурими ролл', 449, 'surimi-roll.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/QvH91P4b/sake-avocado.jpg" alt="Сакэ авокадо ролл" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="sake-avocado.jpg" alt="Сакэ авокадо ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сакэ авокадо ролл</div>
                         <div class="item-desc">Лосось, авокадо, пикантный соус (8 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">449 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Сакэ авокадо ролл', 449, 'https://i.ibb.co/QvH91P4b/sake-avocado.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Сакэ авокадо ролл', 449, 'sake-avocado.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/qYRyzQQM/sunday-roll.jpg" alt="Сэндай ролл" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="sunday-roll.jpg" alt="Сэндай ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сэндай ролл</div>
                         <div class="item-desc">Тигровая креветка, творожный сыр, манго, икра масаго (8 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">499 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Сэндай ролл', 499, 'https://i.ibb.co/qYRyzQQM/sunday-roll.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Сэндай ролл', 499, 'sunday-roll.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
@@ -402,49 +385,67 @@
             <div class="category-header">🥢 Маки роллы</div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/sdcqNwjL/kappa-maki.jpg" alt="Каппа маки ролл" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="kappa-maki.jpg" alt="Каппа маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Каппа маки ролл</div>
                         <div class="item-desc">Огурец, кунжут (8 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">199 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Каппа маки ролл', 199, 'https://i.ibb.co/sdcqNwjL/kappa-maki.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Каппа маки ролл', 199, 'kappa-maki.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/991QkYDk/ebi-maki.jpg" alt="Эби маки ролл" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="ebi-maki.jpg" alt="Эби маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Эби маки ролл</div>
                         <div class="item-desc">Тигровая креветка (8 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">299 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Эби маки ролл', 299, 'https://i.ibb.co/991QkYDk/ebi-maki.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Эби маки ролл', 299, 'ebi-maki.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/PsMqHKKL/avocado-maki.jpg" alt="Авокадо маки ролл" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="avocado-maki.jpg" alt="Авокадо маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Авокадо маки ролл</div>
                         <div class="item-desc">Авокадо (8 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">199 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Авокадо маки ролл', 199, 'https://i.ibb.co/PsMqHKKL/avocado-maki.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Авокадо маки ролл', 199, 'avocado-maki.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/dsr4L2Xf/sake-maki.jpg" alt="Сакэ маки ролл" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="sake-maki.jpg" alt="Сакэ маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сакэ маки ролл</div>
                         <div class="item-desc">Лосось слабосолёный (8 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">249 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Сакэ маки ролл', 249, 'https://i.ibb.co/dsr4L2Xf/sake-maki.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Сакэ маки ролл', 249, 'sake-maki.jpg')">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Запечёные роллы (ПЕРЕНЕСЁН СЮДА) -->
+        <div class="menu-category">
+            <div class="category-header">🔥 Запечёные роллы</div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="baked-rolls.jpg" alt="Запечёные роллы" loading="lazy" onclick="openLightbox(this.src)">
+                    <div class="item-content">
+                        <div class="item-name">Запечёные роллы</div>
+                        <div class="item-desc">Три вида: с крабом, лососем, креветками (8 шт)</div>
+                        <div class="item-footer">
+                            <div class="item-price">499 ₽</div>
+                            <button class="add-to-cart" onclick="addToCart('Запечёные роллы', 499, 'baked-rolls.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
@@ -456,37 +457,37 @@
             <div class="category-header">🎁 Сеты</div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/ZRfGtcFt/maki-set.jpg" alt="Маки сэт" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="maki-set.jpg" alt="Маки сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Маки сэт</div>
                         <div class="item-desc">32 штуки - разнообразие маки роллов</div>
                         <div class="item-footer">
                             <div class="item-price">999 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Маки сэт', 999, 'https://i.ibb.co/ZRfGtcFt/maki-set.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Маки сэт', 999, 'maki-set.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/3ytTrGqM/sun-set.jpg" alt="Сан сэт" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="sun-set.jpg" alt="Сан сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сан сэт</div>
                         <div class="item-desc">32 штуки - популярный набор</div>
                         <div class="item-footer">
                             <div class="item-price">1500 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Сан сэт', 1500, 'https://i.ibb.co/3ytTrGqM/sun-set.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Сан сэт', 1500, 'sun-set.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/7xSBrWNR/moonlight-set.jpg" alt="Мун лайт сэт" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="moonlight-set.jpg" alt="Мун лайт сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Мун лайт сэт</div>
                         <div class="item-desc">48 штук - большой набор для компании</div>
                         <div class="item-footer">
                             <div class="item-price">2250 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Мун лайт сэт', 2250, 'https://i.ibb.co/7xSBrWNR/moonlight-set.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Мун лайт сэт', 2250, 'moonlight-set.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
@@ -498,37 +499,37 @@
             <div class="category-header">🥢 Соусы и добавки</div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/M5J198rf/soy-sauce.jpg" alt="Соевый соус" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="soy-sauce.jpg" alt="Соевый соус" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Соевый соус</div>
                         <div class="item-desc">1 шт</div>
                         <div class="item-footer">
                             <div class="item-price">30 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Соевый соус', 30, 'https://i.ibb.co/M5J198rf/soy-sauce.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Соевый соус', 30, 'soy-sauce.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/HDts9zp7/ginger.jpg" alt="Имбирь" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="ginger.jpg" alt="Имбирь" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Имбирь</div>
                         <div class="item-desc">1 шт</div>
                         <div class="item-footer">
                             <div class="item-price">30 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Имбирь', 30, 'https://i.ibb.co/HDts9zp7/ginger.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Имбирь', 30, 'ginger.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/5xxShhRN/wasabi.jpg" alt="Васаби" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="wasabi.jpg" alt="Васаби" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Васаби</div>
                         <div class="item-desc">1 шт</div>
                         <div class="item-footer">
                             <div class="item-price">30 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Васаби', 30, 'https://i.ibb.co/5xxShhRN/wasabi.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Васаби', 30, 'wasabi.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
