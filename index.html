@@ -10,21 +10,30 @@
         :root {
             --primary: #1e3c72; --secondary: #2a5298; --accent: #ff6b6b;
             --gold: #ffa500; --light: #f8f9fa; --dark: #2c3e50;
+            --telegram: #0088cc; --whatsapp: #25D366;
+            --japan-red: #bc002d; --japan-cream: #f5f0e6; --japan-wood: #8b4513;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6; color: #333; overflow-x: hidden;
+            background-color: var(--japan-cream);
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23bc002d' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--japan-red) 0%, #8b0000 100%);
             color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0;
             z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            border-bottom: 3px solid var(--gold);
         }
         nav {
             max-width: 1200px; margin: 0 auto; padding: 0 2rem;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .logo { font-size: 2rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; }
+        .logo { 
+            font-size: 2rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
         .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
         .nav-links a { color: white; text-decoration: none; transition: all 0.3s; font-weight: 500; }
         .nav-links a:hover { color: var(--gold); }
@@ -34,68 +43,156 @@
             width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
         }
         .cart-count {
-            position: absolute; top: -5px; right: -5px; background: var(--accent);
-            color: white; border-radius: 50%; width: 22px; height: 22px;
+            position: absolute; top: -5px; right: -5px; background: var(--gold);
+            color: var(--dark); border-radius: 50%; width: 22px; height: 22px;
             display: flex; align-items: center; justify-content: center;
             font-size: 0.75rem; font-weight: bold;
         }
         .hero {
             margin-top: 77px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1920&h=800&fit=crop');
             background-size: cover; background-position: center;
             color: white; padding: 6rem 2rem; text-align: center;
+            position: relative;
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.3rem; margin-bottom: 2rem; }
+        .hero::before {
+            content: '🌸';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+        .hero::after {
+            content: '🌸';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+        .hero h1 { 
+            font-size: 3rem; margin-bottom: 1rem; 
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+        .hero p { 
+            font-size: 1.3rem; margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
         .btn {
-            display: inline-block; padding: 1rem 2.5rem; background: var(--accent);
+            display: inline-block; padding: 1rem 2.5rem; background: var(--japan-red);
             color: white; text-decoration: none; border-radius: 50px;
             transition: all 0.3s; font-weight: bold; border: none; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(188,0,45,0.4);
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(188,0,45,0.6); }
         .menu { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
         .section-title {
-            text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 2rem;
+            text-align: center; font-size: 2.5rem; color: var(--japan-red); margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .section-title::after {
+            content: '🍣';
+            display: block;
+            font-size: 2rem;
+            margin-top: 0.5rem;
         }
         .menu-category { margin-bottom: 4rem; }
         .category-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--japan-red), #8b0000);
             color: white; padding: 1rem 2rem; border-radius: 15px;
             margin-bottom: 2rem; text-align: center; font-size: 1.8rem; font-weight: bold;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .menu-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem;
         }
         .menu-item {
             background: white; border-radius: 15px; overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s;
+            border: 1px solid #e0d5c5;
         }
         .menu-item:hover {
             transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: var(--gold);
         }
-        .menu-item img { width: 100%; height: 250px; object-fit: cover; }
+        .menu-item img { 
+            width: 100%; 
+            height: 200px;
+            object-fit: contain;
+            background: #f9f9f9;
+            padding: 10px;
+            transition: transform 0.5s ease;
+            image-rendering: -webkit-optimize-contrast;
+            cursor: pointer;
+        }
+        .menu-item:hover img {
+            transform: scale(1.05);
+        }
         .item-content { padding: 1.5rem; }
         .item-name { font-weight: bold; font-size: 1.3rem; color: var(--dark); margin-bottom: 0.5rem; }
         .item-desc { color: #666; margin-bottom: 1rem; }
         .item-footer { display: flex; justify-content: space-between; align-items: center; }
-        .item-price { color: var(--accent); font-size: 1.5rem; font-weight: bold; }
+        .item-price { color: var(--japan-red); font-size: 1.5rem; font-weight: bold; }
         .add-to-cart {
-            background: var(--accent); color: white; border: none;
+            background: var(--japan-red); color: white; border: none;
             padding: 0.7rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: bold;
         }
-        .add-to-cart:hover { background: #ff5252; }
+        .add-to-cart:hover { background: #8b0000; }
         .contact {
-            padding: 4rem 2rem; background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 4rem 2rem; 
+            background: linear-gradient(135deg, var(--japan-red), #8b0000);
             color: white;
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
         }
         .contact-info { max-width: 600px; margin: 2rem auto; }
         .contact-item {
             background: rgba(255,255,255,0.1); padding: 1.5rem; margin-bottom: 1rem;
             border-radius: 10px; display: flex; align-items: center; gap: 1rem;
+            backdrop-filter: blur(10px);
         }
         .contact-item i { font-size: 2rem; color: var(--gold); }
-        footer { background: var(--dark); color: white; text-align: center; padding: 2rem; }
+        footer { 
+            background: var(--dark); color: white; text-align: center; padding: 2rem;
+            border-top: 3px solid var(--gold);
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .lightbox-close:hover { color: var(--japan-red); }
+
         .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.7); z-index: 2000;
@@ -105,27 +202,60 @@
         .modal-content {
             background: white; border-radius: 20px; padding: 2rem;
             max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;
+            border: 2px solid var(--gold);
         }
         .cart-item {
             display: flex; gap: 1rem; padding: 1rem; margin-bottom: 1rem;
             background: var(--light); border-radius: 10px; align-items: center;
         }
-        .cart-item img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; }
-        .checkout-btn {
-            width: 100%; padding: 1rem; background: #25D366; color: white;
-            border: none; border-radius: 10px; font-size: 1.1rem; font-weight: bold;
-            cursor: pointer; margin-top: 1rem;
+        .cart-item img { width: 70px; height: 70px; object-fit: contain; background: #f9f9f9; padding: 5px; border-radius: 8px; }
+        .checkout-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
         }
+        .checkout-btn {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+        }
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .btn-whatsapp { background: var(--whatsapp); }
+        .btn-telegram { background: var(--telegram); }
+        .btn-sms { background: #34c759; }
         .whatsapp-float {
-            position: fixed; bottom: 100px; right: 30px; background: #25D366;
+            position: fixed; bottom: 160px; right: 30px; background: var(--whatsapp);
             color: white; width: 60px; height: 60px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-size: 2rem; text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .telegram-float {
+            position: fixed; bottom: 90px; right: 30px; background: var(--telegram);
+            color: white; width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .order-float {
-            position: fixed; bottom: 30px; right: 30px; background: var(--accent);
+            position: fixed; bottom: 30px; right: 30px; background: var(--japan-red);
             color: white; padding: 1rem 2rem; border-radius: 50px;
             cursor: pointer; font-weight: bold;
+            box-shadow: 0 4px 15px rgba(188,0,45,0.4);
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -138,7 +268,7 @@
 
     <header>
         <nav>
-            <div class="logo"><i class="fas fa-utensils"></i> Cityfood</div>
+            <div class="logo">🍱 Cityfood</div>
             <ul class="nav-links">
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#menu">Меню</a></li>
@@ -149,7 +279,7 @@
     </header>
 
     <section class="hero" id="home">
-        <h1>Cityfood - Доставка суши</h1>
+        <h1>🍣 Cityfood - Доставка суши</h1>
         <p>Свежие и вкусные суши с доставкой</p>
         <a href="#menu" class="btn">Смотреть меню</a>
     </section>
@@ -162,7 +292,7 @@
             <div class="category-header">🔥 Запечёные роллы</div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/sdVDJKLb/baked-rolls.jpg" alt="Запечёные роллы">
+                    <img src="https://i.ibb.co/sdVDJKLb/baked-rolls.jpg" alt="Запечёные роллы" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Запечёные роллы</div>
                         <div class="item-desc">Три вида: с крабом, лососем, креветками (8 шт)</div>
@@ -180,7 +310,7 @@
             <div class="category-header">🍣 Роллы</div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/tWKRsGR/california-roll.jpg" alt="Калифорния ролл">
+                    <img src="https://i.ibb.co/tWKRsGR/california-roll.jpg" alt="Калифорния ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Калифорния ролл</div>
                         <div class="item-desc">Краб, огурец, авокадо, икра масаго (8 шт)</div>
@@ -192,7 +322,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/Xx8t72dF/philadelphia-roll.jpg" alt="Филадельфия ролл">
+                    <img src="https://i.ibb.co/Xx8t72dF/philadelphia-roll.jpg" alt="Филадельфия ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Филадельфия ролл</div>
                         <div class="item-desc">Творожный сыр, огурец, лосось (8 шт)</div>
@@ -204,7 +334,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/tpFGT0kZ/kyoto-roll.jpg" alt="Киото ролл">
+                    <img src="https://i.ibb.co/tpFGT0kZ/kyoto-roll.jpg" alt="Киото ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Киото ролл</div>
                         <div class="item-desc">Жареный лосось, томат, салат свежий (8 шт)</div>
@@ -216,7 +346,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/n8twsDYy/surimi-roll.jpg" alt="Сурими ролл">
+                    <img src="https://i.ibb.co/n8twsDYy/surimi-roll.jpg" alt="Сурими ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сурими ролл</div>
                         <div class="item-desc">Лосось, краб, творожный сыр, авокадо (8 шт)</div>
@@ -228,7 +358,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/QvH91P4b/sake-avocado.jpg" alt="Сакэ авокадо ролл">
+                    <img src="https://i.ibb.co/QvH91P4b/sake-avocado.jpg" alt="Сакэ авокадо ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сакэ авокадо ролл</div>
                         <div class="item-desc">Лосось, авокадо, пикантный соус (8 шт)</div>
@@ -240,7 +370,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/qYRyzQQM/sunday-roll.jpg" alt="Сэндай ролл">
+                    <img src="https://i.ibb.co/qYRyzQQM/sunday-roll.jpg" alt="Сэндай ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сэндай ролл</div>
                         <div class="item-desc">Тигровая креветка, творожный сыр, манго, икра масаго (8 шт)</div>
@@ -258,7 +388,7 @@
             <div class="category-header">🥢 Маки роллы</div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/sdcqNwjL/kappa-maki.jpg" alt="Каппа маки ролл">
+                    <img src="https://i.ibb.co/sdcqNwjL/kappa-maki.jpg" alt="Каппа маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Каппа маки ролл</div>
                         <div class="item-desc">Огурец, кунжут (8 шт)</div>
@@ -270,7 +400,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/991QkYDk/ebi-maki.jpg" alt="Эби маки ролл">
+                    <img src="https://i.ibb.co/991QkYDk/ebi-maki.jpg" alt="Эби маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Эби маки ролл</div>
                         <div class="item-desc">Тигровая креветка (8 шт)</div>
@@ -282,7 +412,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/PsMqHKKL/avocado-maki.jpg" alt="Авокадо маки ролл">
+                    <img src="https://i.ibb.co/PsMqHKKL/avocado-maki.jpg" alt="Авокадо маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Авокадо маки ролл</div>
                         <div class="item-desc">Авокадо (8 шт)</div>
@@ -294,7 +424,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/dsr4L2Xf/sake-maki.jpg" alt="Сакэ маки ролл">
+                    <img src="https://i.ibb.co/dsr4L2Xf/sake-maki.jpg" alt="Сакэ маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сакэ маки ролл</div>
                         <div class="item-desc">Лосось слабосолёный (8 шт)</div>
@@ -312,7 +442,7 @@
             <div class="category-header">🎁 Сеты</div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/ZRfGtcFt/maki-set.jpg" alt="Маки сэт">
+                    <img src="https://i.ibb.co/ZRfGtcFt/maki-set.jpg" alt="Маки сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Маки сэт</div>
                         <div class="item-desc">32 штуки - разнообразие маки роллов</div>
@@ -324,7 +454,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/3ytTrGqM/sun-set.jpg" alt="Сан сэт">
+                    <img src="https://i.ibb.co/3ytTrGqM/sun-set.jpg" alt="Сан сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сан сэт</div>
                         <div class="item-desc">32 штуки - популярный набор</div>
@@ -336,7 +466,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/7xSBrWNR/moonlight-set.jpg" alt="Мун лайт сэт">
+                    <img src="https://i.ibb.co/7xSBrWNR/moonlight-set.jpg" alt="Мун лайт сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Мун лайт сэт</div>
                         <div class="item-desc">48 штук - большой набор для компании</div>
@@ -354,7 +484,7 @@
             <div class="category-header">🥢 Соусы и добавки</div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/M5J198rf/soy-sauce.jpg" alt="Соевый соус">
+                    <img src="https://i.ibb.co/M5J198rf/soy-sauce.jpg" alt="Соевый соус" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Соевый соус</div>
                         <div class="item-desc">1 шт</div>
@@ -366,7 +496,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/HDts9zp7/ginger.jpg" alt="Имбирь">
+                    <img src="https://i.ibb.co/HDts9zp7/ginger.jpg" alt="Имбирь" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Имбирь</div>
                         <div class="item-desc">1 шт</div>
@@ -378,7 +508,7 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="https://i.ibb.co/5xxShhRN/wasabi.jpg" alt="Васаби">
+                    <img src="https://i.ibb.co/5xxShhRN/wasabi.jpg" alt="Васаби" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Васаби</div>
                         <div class="item-desc">1 шт</div>
@@ -400,6 +530,14 @@
                 <div><strong>Телефон:</strong> <a href="tel:+789284560457" style="color: white;">8-928-456-04-57</a></div>
             </div>
             <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <div><strong>WhatsApp:</strong> <a href="https://wa.me/789284560457" style="color: white;">8-928-456-04-57</a></div>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-telegram"></i>
+                <div><strong>Telegram:</strong> <a href="https://t.me/+789284560457" style="color: white;">@cityfood</a></div>
+            </div>
+            <div class="contact-item">
                 <i class="fas fa-clock"></i>
                 <div><strong>Дни работы:</strong> Четверг, Пятница, Суббота, Воскресенье</div>
             </div>
@@ -411,36 +549,60 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Cityfood. Все права защищены.</p>
+        <p>🍣 © 2026 Cityfood. Все права защищены.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">🇯🇵 Традиционные японские вкусы</p>
     </footer>
 
+    <!-- Lightbox для просмотра фото -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Просмотр" id="lightboxImg">
+    </div>
+
+    <!-- Cart Modal -->
     <div class="modal" id="cartModal">
         <div class="modal-content">
-            <h2>Корзина</h2>
+            <h2>🛒 Ваша корзина</h2>
             <div id="cartItems"></div>
             <div id="cartTotal" style="display: none;">
-                <h3>Итого: <span id="totalPrice">0</span> ₽</h3>
-                <button class="checkout-btn" onclick="checkout()">Заказать в WhatsApp</button>
+                <h3 style="margin: 1rem 0;">Итого: <span id="totalPrice">0</span> ₽</h3>
+                <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Выберите удобный способ связи для заказа:</p>
+                <div class="checkout-buttons">
+                    <a href="#" class="checkout-btn btn-whatsapp" onclick="checkout('whatsapp')">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="#" class="checkout-btn btn-telegram" onclick="checkout('telegram')">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                    <a href="#" class="checkout-btn btn-sms" onclick="checkout('sms')">
+                        <i class="fas fa-sms"></i> SMS
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
-    <button class="order-float" onclick="openCart()">Заказать</button>
-    <a href="https://wa.me/789284560457" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+    <!-- Floating Buttons -->
+    <button class="order-float" onclick="openCart()">🛒 Корзина</button>
+    <a href="https://wa.me/789284560457" class="whatsapp-float" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://t.me/+789284560457" class="telegram-float" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
 
     <script>
         let cart = [];
+
         function addToCart(name, price, image) {
             cart.push({name, price, image});
             updateCart();
             alert(name + ' добавлен в корзину!');
         }
+
         function updateCart() {
             document.getElementById('cartCount').textContent = cart.length;
             const items = document.getElementById('cartItems');
             const total = document.getElementById('cartTotal');
+            
             if (cart.length === 0) {
-                items.innerHTML = '<p>Корзина пуста</p>';
+                items.innerHTML = '<p style="text-align:center; padding:2rem; color:#999;">🛒 Корзина пуста</p>';
                 total.style.display = 'none';
             } else {
                 items.innerHTML = cart.map((item, i) => `
@@ -448,7 +610,7 @@
                         <img src="${item.image}" alt="${item.name}">
                         <div style="flex:1">
                             <div style="font-weight:bold">${item.name}</div>
-                            <div>${item.price} ₽</div>
+                            <div style="color:var(--japan-red); font-weight:bold">${item.price} ₽</div>
                         </div>
                         <button onclick="cart.splice(${i},1);updateCart()" style="background:#ff6b6b;color:white;border:none;padding:0.5rem;border-radius:5px;cursor:pointer">✕</button>
                     </div>
@@ -457,18 +619,46 @@
                 document.getElementById('totalPrice').textContent = cart.reduce((sum, item) => sum + item.price, 0);
             }
         }
+
         function openCart() {
             document.getElementById('cartModal').classList.add('active');
             updateCart();
         }
+
         document.getElementById('cartModal').addEventListener('click', (e) => {
             if (e.target.id === 'cartModal') document.getElementById('cartModal').classList.remove('active');
         });
-        function checkout() {
+
+        function checkout(method) {
             if (cart.length === 0) return;
+            
             const total = cart.reduce((sum, item) => sum + item.price, 0);
-            const text = `Заказ Cityfood:%0A${cart.map(i => `${i.name} - ${i.price}₽`).join('%0A')}%0A%0AИтого: ${total}₽`;
-            window.open(`https://wa.me/789284560457?text=${text}`, '_blank');
+            const orderText = cart.map(i => `${i.name} - ${i.price}₽`).join('%0A');
+            const message = `🍣 Новый заказ Cityfood%0A%0A${orderText}%0A%0A💰 Итого: ${total}₽%0A%0A📍 Адрес: (укажите)%0A📞 Телефон: (укажите)`;
+            
+            let url = '';
+            switch(method) {
+                case 'whatsapp':
+                    url = `https://wa.me/789284560457?text=${message}`;
+                    break;
+                case 'telegram':
+                    url = `https://t.me/+789284560457?text=${message}`;
+                    break;
+                case 'sms':
+                    url = `sms:+789284560457?body=${decodeURIComponent(message)}`;
+                    break;
+            }
+            
+            window.open(url, '_blank');
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
         }
     </script>
 
