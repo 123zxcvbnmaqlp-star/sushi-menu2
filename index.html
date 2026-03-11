@@ -158,7 +158,7 @@
         }
         .add-to-cart:hover { background: #8b0000; }
 
-        /* ДОСТАВКА - НОВЫЙ СТИЛЬ */
+        /* ДОСТАВКА */
         .delivery {
             padding: 4rem 2rem;
             background: rgba(0, 0, 0, 0.7);
@@ -177,80 +177,62 @@
             color: var(--gold);
             margin-right: 0.5rem;
         }
-        .delivery-grid {
-            max-width: 1000px;
+        .delivery-container {
+            max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
         }
         .delivery-card {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 2rem;
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 3px solid var(--gold);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .delivery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .delivery-zone {
             text-align: center;
+            padding: 1.5rem;
+            border-radius: 15px;
             transition: all 0.3s;
-            border: 2px solid var(--gold);
-            position: relative;
-            overflow: hidden;
         }
-        .delivery-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--japan-red), var(--gold));
-        }
-        .delivery-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-        .delivery-card.free {
+        .delivery-zone.free {
             background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-            border-color: #28a745;
+            border: 2px solid #28a745;
         }
-        .delivery-card.free::before {
-            background: linear-gradient(90deg, #28a745, #20c997);
-        }
-        .delivery-card.standard {
+        .delivery-zone.standard {
             background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-            border-color: #ffc107;
+            border: 2px solid #ffc107;
         }
-        .delivery-card.standard::before {
-            background: linear-gradient(90deg, #ffc107, #fd7e14);
-        }
-        .delivery-card.premium {
+        .delivery-zone.premium {
             background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
-            border-color: #dc3545;
+            border: 2px solid #dc3545;
         }
-        .delivery-card.premium::before {
-            background: linear-gradient(90deg, #dc3545, #e83e8c);
+        .delivery-zone:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         .delivery-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-        .delivery-card h3 {
+        .delivery-zone h3 {
             color: var(--dark);
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         .delivery-price {
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 1rem;
         }
-        .delivery-card.free .delivery-price {
-            color: #28a745;
-        }
-        .delivery-card.standard .delivery-price {
-            color: #ffc107;
-        }
-        .delivery-card.premium .delivery-price {
-            color: #dc3545;
-        }
+        .delivery-zone.free .delivery-price { color: #28a745; }
+        .delivery-zone.standard .delivery-price { color: #ffc107; }
+        .delivery-zone.premium .delivery-price { color: #dc3545; }
         .delivery-areas {
             list-style: none;
             text-align: left;
@@ -260,23 +242,20 @@
             padding: 0.5rem 0;
             border-bottom: 1px solid rgba(0,0,0,0.1);
             color: #555;
+            display: flex;
+            align-items: center;
         }
-        .delivery-areas li:last-child {
-            border-bottom: none;
-        }
+        .delivery-areas li:last-child { border-bottom: none; }
         .delivery-areas li i {
-            color: var(--gold);
+            color: var(--japan-red);
             margin-right: 0.5rem;
+            font-size: 0.9rem;
         }
         .delivery-note {
             text-align: center;
-            margin-top: 3rem;
             padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border-radius: 15px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
             border: 2px dashed var(--gold);
         }
         .delivery-note p {
@@ -286,6 +265,106 @@
         .delivery-note i {
             color: var(--japan-red);
             margin-right: 0.5rem;
+        }
+
+        /* ИНФОРМАЦИЯ ДЛЯ ПОТРЕБИТЕЛЕЙ */
+        .info-section {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+        }
+        .info-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .info-block {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--japan-red);
+        }
+        .info-block h2 {
+            color: var(--japan-red);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gold);
+        }
+        .info-block h3 {
+            color: var(--dark);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+        }
+        .info-block p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .info-table th {
+            background: linear-gradient(135deg, var(--japan-red), #8b0000);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        .info-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+        .info-table tr:hover td {
+            background: #f0f0f0;
+        }
+        .info-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-block ul li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+        .info-block ul li::before {
+            content: '•';
+            color: var(--japan-red);
+            font-weight: bold;
+            position: absolute;
+            left: 0.5rem;
+            font-size: 1.5rem;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .warning-box strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .warning-box p {
+            color: #856404;
+            margin: 0;
+        }
+        .temp-note {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border: 2px solid #17a2b8;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #0c5460;
         }
 
         .contact {
@@ -408,6 +487,8 @@
             .hero h1 { font-size: 2rem; }
             .menu-grid { grid-template-columns: 1fr; }
             .delivery-grid { grid-template-columns: 1fr; }
+            .info-block { padding: 1.5rem; }
+            .info-table { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -420,6 +501,7 @@
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#menu">Меню</a></li>
                 <li><a href="#delivery">Доставка</a></li>
+                <li><a href="#info">Информация</a></li>
                 <li><a href="#contact">Контакты</a></li>
                 <li><div class="cart-icon" onclick="openCart()"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></div></li>
             </ul>
@@ -670,56 +752,134 @@
         </div>
     </section>
 
-    <!-- НОВЫЙ РАЗДЕЛ: ДОСТАВКА -->
+    <!-- Доставка -->
     <section class="delivery" id="delivery">
         <h2 class="delivery-title"><i class="fas fa-truck"></i> Зоны Доставки</h2>
         
-        <div class="delivery-grid">
-            <!-- Бесплатная доставка -->
-            <div class="delivery-card free">
-                <div class="delivery-icon">🆓</div>
-                <h3>Бесплатно</h3>
-                <div class="delivery-price">0 ₽</div>
-                <ul class="delivery-areas">
-                    <li><i class="fas fa-map-marker-alt"></i> Кудепста</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Центральный район Адлера</li>
-                </ul>
-            </div>
+        <div class="delivery-container">
+            <div class="delivery-card">
+                <div class="delivery-grid">
+                    <!-- Бесплатная доставка -->
+                    <div class="delivery-zone free">
+                        <div class="delivery-icon">🆓</div>
+                        <h3>Бесплатно</h3>
+                        <div class="delivery-price">0 ₽</div>
+                        <ul class="delivery-areas">
+                            <li><i class="fas fa-map-marker-alt"></i> Кудепста</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Центральный район Адлера</li>
+                        </ul>
+                    </div>
 
-            <!-- Стандартная доставка -->
-            <div class="delivery-card standard">
-                <div class="delivery-icon">🚗</div>
-                <h3>Стандарт</h3>
-                <div class="delivery-price">350 ₽</div>
-                <ul class="delivery-areas">
-                    <li><i class="fas fa-map-marker-alt"></i> Сириус</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Блиново</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Весёлое</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Олимпийский</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Верхневесёлое</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Черешня</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Нижняя Шиловка</li>
-                </ul>
-            </div>
+                    <!-- Стандартная доставка -->
+                    <div class="delivery-zone standard">
+                        <div class="delivery-icon">🚗</div>
+                        <h3>Стандарт</h3>
+                        <div class="delivery-price">350 ₽</div>
+                        <ul class="delivery-areas">
+                            <li><i class="fas fa-map-marker-alt"></i> Сириус</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Блиново</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Весёлое</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Олимпийский</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Верхневесёлое</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Черешня</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Нижняя Шиловка</li>
+                        </ul>
+                    </div>
 
-            <!-- Премиум доставка -->
-            <div class="delivery-card premium">
-                <div class="delivery-icon">🚙</div>
-                <h3>Дальняя</h3>
-                <div class="delivery-price">500 ₽</div>
-                <ul class="delivery-areas">
-                    <li><i class="fas fa-map-marker-alt"></i> Молдовка</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Весёлое</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Липники</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Галицино</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Сочи</li>
-                </ul>
+                    <!-- Премиум доставка -->
+                    <div class="delivery-zone premium">
+                        <div class="delivery-icon">🚙</div>
+                        <h3>Дальняя</h3>
+                        <div class="delivery-price">500 ₽</div>
+                        <ul class="delivery-areas">
+                            <li><i class="fas fa-map-marker-alt"></i> Молдовка</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Весёлое</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Липники</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Галицино</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Сочи</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="delivery-note">
+                    <p><i class="fas fa-info-circle"></i> <strong>Более отдалённые районы обсуждаются индивидуально</strong></p>
+                    <p style="margin-top: 0.5rem; font-size: 0.95rem;">Свяжитесь с нами для уточнения стоимости доставки</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="delivery-note">
-            <p><i class="fas fa-info-circle"></i> <strong>Более отдалённые районы обсуждаются индивидуально</strong></p>
-            <p style="margin-top: 0.5rem; font-size: 0.95rem;">Свяжитесь с нами для уточнения стоимости доставки</p>
+    <!-- ИНФОРМАЦИЯ ДЛЯ ПОТРЕБИТЕЛЕЙ -->
+    <section class="info-section" id="info">
+        <div class="info-container">
+            <h2 class="section-title">Информация для потребителей</h2>
+
+            <!-- О составе -->
+            <div class="info-block">
+                <h3><i class="fas fa-clipboard-list"></i> О составе</h3>
+                <p>В состав всех роллов и суши входят: рис, нори, рисовый уксус мицукан.</p>
+            </div>
+
+            <!-- Сроки годности -->
+            <div class="info-block">
+                <h3><i class="fas fa-clock"></i> Сроки годности при температуре от 2°C до 6°C</h3>
+                
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Блюдо</th>
+                            <th>Время хранения</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Роллы/суши с сырой рыбой</td>
+                            <td>не более 6 часов</td>
+                        </tr>
+                        <tr>
+                            <td>Роллы без сырой рыбы</td>
+                            <td>не более 24 часов</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="temp-note">
+                    <i class="fas fa-thermometer-half"></i> Охлаждённые суши, роллы выпускают в реализацию с температурой в толще продукта от 2 до 6°C.
+                </div>
+
+                <div class="warning-box">
+                    <strong>👉 Помните!</strong>
+                    <p>Соусы и специи необходимо употребить вместе с заказом. Не рекомендуется хранить соевый соус, имбирь и васаби более 10 часов с момента получения заказа.</p>
+                </div>
+            </div>
+
+            <!-- Природные антисептики -->
+            <div class="info-block">
+                <h3><i class="fas fa-leaf"></i> Природные антисептики</h3>
+                <p>Блюда японской кухни, специфические для европейцев и россиян, рекомендуется употреблять с имбирём, соевым соусом и горчицей «васаби». В состав имбиря кроме эфирных масел входят аминокислоты, витамины, соединения, родственные терпенам, и смолистые вещества, придающие имбирю пряный вкусовой оттенок с острым эффектом.</p>
+                <p>Соевый соус получают путем ферментативного брожения с помощью грибков. Поскольку соус получают из соевых бобов, он богат микроэлементами, аминокислотами и содержит ряд витаминов.</p>
+                <p>Васаби подавляет рост патогенных микроорганизмов, обладает яркими антисептическими свойствами.</p>
+            </div>
+
+            <!-- Противопоказания -->
+            <div class="info-block">
+                <h3><i class="fas fa-exclamation-triangle"></i> Противопоказания</h3>
+                <p>Не рекомендуется употреблять блюда японской кухни:</p>
+                <ul>
+                    <li>беременным женщинам и в период лактации;</li>
+                    <li>детям до 14 лет;</li>
+                    <li>в качестве диеты, или единственной/первой еды в течение дня;</li>
+                    <li>лицам с индивидуальной непереносимостью сырой рыбы.</li>
+                </ul>
+            </div>
+
+            <!-- Контроль качества -->
+            <div class="info-block">
+                <h3><i class="fas fa-check-circle"></i> Контроль качества</h3>
+                <p>при производстве указанных в меню блюд соблюдает все нормы и правила СанПиН, правила товарного соседства, условия хранения и сроки годности продуктов.</p>
+                <p>строго соблюдается Программа производственного контроля на предприятиях общественного питания.</p>
+                <p>Со своей стороны — потребитель, совершая заказ обязуется соблюдать указанные выше рекомендации по хранению и показаниям к употреблению, в противном случае несёт ответственность за причинение ущерба.</p>
+            </div>
         </div>
     </section>
 
@@ -794,7 +954,40 @@
         function addToCart(name, price, image) {
             cart.push({name, price, image});
             updateCart();
-            alert(name + ' добавлен в корзину!');
+            showNotification(name);
+        }
+
+        function showNotification(itemName) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 30px;
+                background: linear-gradient(135deg, #28a745, #20c997);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                z-index: 9999;
+                animation: slideIn 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            `;
+            notification.innerHTML = `
+                <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
+                <div>
+                    <div style="font-weight: bold;">Добавлено в корзину!</div>
+                    <div style="font-size: 0.9rem; opacity: 0.9;">${itemName}</div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
         }
 
         function updateCart() {
