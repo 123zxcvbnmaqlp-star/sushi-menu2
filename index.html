@@ -157,6 +157,137 @@
             padding: 0.7rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: bold;
         }
         .add-to-cart:hover { background: #8b0000; }
+
+        /* ДОСТАВКА - НОВЫЙ СТИЛЬ */
+        .delivery {
+            padding: 4rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+        }
+        .delivery-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .delivery-title i {
+            color: var(--gold);
+            margin-right: 0.5rem;
+        }
+        .delivery-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .delivery-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+        .delivery-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--japan-red), var(--gold));
+        }
+        .delivery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .delivery-card.free {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-color: #28a745;
+        }
+        .delivery-card.free::before {
+            background: linear-gradient(90deg, #28a745, #20c997);
+        }
+        .delivery-card.standard {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-color: #ffc107;
+        }
+        .delivery-card.standard::before {
+            background: linear-gradient(90deg, #ffc107, #fd7e14);
+        }
+        .delivery-card.premium {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border-color: #dc3545;
+        }
+        .delivery-card.premium::before {
+            background: linear-gradient(90deg, #dc3545, #e83e8c);
+        }
+        .delivery-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .delivery-card h3 {
+            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .delivery-price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .delivery-card.free .delivery-price {
+            color: #28a745;
+        }
+        .delivery-card.standard .delivery-price {
+            color: #ffc107;
+        }
+        .delivery-card.premium .delivery-price {
+            color: #dc3545;
+        }
+        .delivery-areas {
+            list-style: none;
+            text-align: left;
+            margin-top: 1rem;
+        }
+        .delivery-areas li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            color: #555;
+        }
+        .delivery-areas li:last-child {
+            border-bottom: none;
+        }
+        .delivery-areas li i {
+            color: var(--gold);
+            margin-right: 0.5rem;
+        }
+        .delivery-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px dashed var(--gold);
+        }
+        .delivery-note p {
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        .delivery-note i {
+            color: var(--japan-red);
+            margin-right: 0.5rem;
+        }
+
         .contact {
             padding: 4rem 2rem; 
             background: rgba(188, 0, 45, 0.9);
@@ -276,6 +407,7 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 2rem; }
             .menu-grid { grid-template-columns: 1fr; }
+            .delivery-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -287,6 +419,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#menu">Меню</a></li>
+                <li><a href="#delivery">Доставка</a></li>
                 <li><a href="#contact">Контакты</a></li>
                 <li><div class="cart-icon" onclick="openCart()"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></div></li>
             </ul>
@@ -434,7 +567,7 @@
             </div>
         </div>
 
-        <!-- Запечёные роллы (ПЕРЕНЕСЁН СЮДА) -->
+        <!-- Запечёные роллы -->
         <div class="menu-category">
             <div class="category-header">🔥 Запечёные роллы</div>
             <div class="menu-grid">
@@ -534,6 +667,59 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- НОВЫЙ РАЗДЕЛ: ДОСТАВКА -->
+    <section class="delivery" id="delivery">
+        <h2 class="delivery-title"><i class="fas fa-truck"></i> Зоны Доставки</h2>
+        
+        <div class="delivery-grid">
+            <!-- Бесплатная доставка -->
+            <div class="delivery-card free">
+                <div class="delivery-icon">🆓</div>
+                <h3>Бесплатно</h3>
+                <div class="delivery-price">0 ₽</div>
+                <ul class="delivery-areas">
+                    <li><i class="fas fa-map-marker-alt"></i> Кудепста</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Центральный район Адлера</li>
+                </ul>
+            </div>
+
+            <!-- Стандартная доставка -->
+            <div class="delivery-card standard">
+                <div class="delivery-icon">🚗</div>
+                <h3>Стандарт</h3>
+                <div class="delivery-price">350 ₽</div>
+                <ul class="delivery-areas">
+                    <li><i class="fas fa-map-marker-alt"></i> Сириус</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Блиново</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Весёлое</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Олимпийский</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Верхневесёлое</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Черешня</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Нижняя Шиловка</li>
+                </ul>
+            </div>
+
+            <!-- Премиум доставка -->
+            <div class="delivery-card premium">
+                <div class="delivery-icon">🚙</div>
+                <h3>Дальняя</h3>
+                <div class="delivery-price">500 ₽</div>
+                <ul class="delivery-areas">
+                    <li><i class="fas fa-map-marker-alt"></i> Молдовка</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Весёлое</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Липники</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Галицино</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Сочи</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="delivery-note">
+            <p><i class="fas fa-info-circle"></i> <strong>Более отдалённые районы обсуждаются индивидуально</strong></p>
+            <p style="margin-top: 0.5rem; font-size: 0.95rem;">Свяжитесь с нами для уточнения стоимости доставки</p>
         </div>
     </section>
 
