@@ -149,7 +149,13 @@
         }
         .item-content { padding: 1.5rem; }
         .item-name { font-weight: bold; font-size: 1.3rem; color: var(--dark); margin-bottom: 0.5rem; }
-        .item-desc { color: #666; margin-bottom: 1rem; }
+        .item-desc { color: #666; margin-bottom: 1rem; line-height: 1.6; }
+        .item-weight {
+            color: var(--japan-red);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
         .item-footer { display: flex; justify-content: space-between; align-items: center; }
         .item-price { color: var(--japan-red); font-size: 1.5rem; font-weight: bold; }
         .add-to-cart {
@@ -525,7 +531,8 @@
                     <img src="california-roll.jpg" alt="Калифорния ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Калифорния ролл</div>
-                        <div class="item-desc">Краб, огурец, авокадо, икра масаго (8 шт)</div>
+                        <div class="item-weight">⚖️ 230г (8 шт)</div>
+                        <div class="item-desc">Краб, огурец, авокадо, икра масаго</div>
                         <div class="item-footer">
                             <div class="item-price">449 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Калифорния ролл', 449, 'california-roll.jpg')">В корзину</button>
@@ -537,7 +544,8 @@
                     <img src="philadelphia-roll.jpg" alt="Филадельфия ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Филадельфия ролл</div>
-                        <div class="item-desc">Творожный сыр, огурец, лосось (8 шт)</div>
+                        <div class="item-weight">⚖️ 250г (8 шт)</div>
+                        <div class="item-desc">Творожный сыр, огурец, лосось</div>
                         <div class="item-footer">
                             <div class="item-price">499 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Филадельфия ролл', 499, 'philadelphia-roll.jpg')">В корзину</button>
@@ -549,7 +557,8 @@
                     <img src="kyoto-roll.jpg" alt="Киото ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Киото ролл</div>
-                        <div class="item-desc">Жареный лосось, томат, салат свежий (8 шт)</div>
+                        <div class="item-weight">⚖️ 240г (8 шт)</div>
+                        <div class="item-desc">Жареный лосось, томат, салат свежий</div>
                         <div class="item-footer">
                             <div class="item-price">449 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Киото ролл', 449, 'kyoto-roll.jpg')">В корзину</button>
@@ -561,7 +570,8 @@
                     <img src="surimi-roll.jpg" alt="Сурими ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сурими ролл</div>
-                        <div class="item-desc">Лосось, краб, творожный сыр, авокадо (8 шт)</div>
+                        <div class="item-weight">⚖️ 240г (8 шт)</div>
+                        <div class="item-desc">Лосось, краб, творожный сыр, авокадо</div>
                         <div class="item-footer">
                             <div class="item-price">449 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Сурими ролл', 449, 'surimi-roll.jpg')">В корзину</button>
@@ -573,7 +583,8 @@
                     <img src="sake-avocado.jpg" alt="Сакэ авокадо ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сакэ авокадо ролл</div>
-                        <div class="item-desc">Лосось, авокадо, пикантный соус (8 шт)</div>
+                        <div class="item-weight">⚖️ 235г (8 шт)</div>
+                        <div class="item-desc">Лосось, авокадо, пикантный соус</div>
                         <div class="item-footer">
                             <div class="item-price">449 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Сакэ авокадо ролл', 449, 'sake-avocado.jpg')">В корзину</button>
@@ -585,7 +596,8 @@
                     <img src="sunday-roll.jpg" alt="Сэндай ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сэндай ролл</div>
-                        <div class="item-desc">Тигровая креветка, творожный сыр, манго, икра масаго (8 шт)</div>
+                        <div class="item-weight">⚖️ 245г (8 шт)</div>
+                        <div class="item-desc">Тигровая креветка, творожный сыр, манго, икра масаго</div>
                         <div class="item-footer">
                             <div class="item-price">499 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Сэндай ролл', 499, 'sunday-roll.jpg')">В корзину</button>
@@ -603,7 +615,8 @@
                     <img src="kappa-maki.jpg" alt="Каппа маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Каппа маки ролл</div>
-                        <div class="item-desc">Огурец, кунжут (8 шт)</div>
+                        <div class="item-weight">⚖️ 150г (8 шт)</div>
+                        <div class="item-desc">Огурец, кунжут</div>
                         <div class="item-footer">
                             <div class="item-price">199 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Каппа маки ролл', 199, 'kappa-maki.jpg')">В корзину</button>
@@ -615,7 +628,8 @@
                     <img src="ebi-maki.jpg" alt="Эби маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Эби маки ролл</div>
-                        <div class="item-desc">Тигровая креветка (8 шт)</div>
+                        <div class="item-weight">⚖️ 165г (8 шт)</div>
+                        <div class="item-desc">Тигровая креветка</div>
                         <div class="item-footer">
                             <div class="item-price">299 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Эби маки ролл', 299, 'ebi-maki.jpg')">В корзину</button>
@@ -627,7 +641,8 @@
                     <img src="avocado-maki.jpg" alt="Авокадо маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Авокадо маки ролл</div>
-                        <div class="item-desc">Авокадо (8 шт)</div>
+                        <div class="item-weight">⚖️ 155г (8 шт)</div>
+                        <div class="item-desc">Авокадо</div>
                         <div class="item-footer">
                             <div class="item-price">199 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Авокадо маки ролл', 199, 'avocado-maki.jpg')">В корзину</button>
@@ -639,7 +654,8 @@
                     <img src="sake-maki.jpg" alt="Сакэ маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сакэ маки ролл</div>
-                        <div class="item-desc">Лосось слабосолёный (8 шт)</div>
+                        <div class="item-weight">⚖️ 160г (8 шт)</div>
+                        <div class="item-desc">Лосось слабосолёный</div>
                         <div class="item-footer">
                             <div class="item-price">249 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Сакэ маки ролл', 249, 'sake-maki.jpg')">В корзину</button>
@@ -654,13 +670,40 @@
             <div class="category-header">🔥 Запечёные роллы</div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="baked-rolls.jpg" alt="Запечёные роллы" loading="lazy" onclick="openLightbox(this.src)">
+                    <img src="baked-crab.jpg" alt="Запечённый ролл с крабом" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
-                        <div class="item-name">Запечёные роллы</div>
-                        <div class="item-desc">Три вида: с крабом, лососем, креветками (8 шт)</div>
+                        <div class="item-name">Запечённый ролл с крабом</div>
+                        <div class="item-weight">⚖️ 240г (8 шт)</div>
+                        <div class="item-desc">Краб, творожный сыр, соус унаги, кунжут</div>
                         <div class="item-footer">
                             <div class="item-price">499 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Запечёные роллы', 499, 'baked-rolls.jpg')">В корзину</button>
+                            <button class="add-to-cart" onclick="addToCart('Запечённый ролл с крабом', 499, 'baked-crab.jpg')">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="baked-salmon.jpg" alt="Запечённый ролл с лососем" loading="lazy" onclick="openLightbox(this.src)">
+                    <div class="item-content">
+                        <div class="item-name">Запечённый ролл с лососем</div>
+                        <div class="item-weight">⚖️ 250г (8 шт)</div>
+                        <div class="item-desc">Лосось, творожный сыр, соус унаги, кунжут</div>
+                        <div class="item-footer">
+                            <div class="item-price">499 ₽</div>
+                            <button class="add-to-cart" onclick="addToCart('Запечённый ролл с лососем', 499, 'baked-salmon.jpg')">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="baked-shrimp.jpg" alt="Запечённый ролл с креветками" loading="lazy" onclick="openLightbox(this.src)">
+                    <div class="item-content">
+                        <div class="item-name">Запечённый ролл с креветками</div>
+                        <div class="item-weight">⚖️ 245г (8 шт)</div>
+                        <div class="item-desc">Креветки, творожный сыр, соус унаги, кунжут</div>
+                        <div class="item-footer">
+                            <div class="item-price">499 ₽</div>
+                            <button class="add-to-cart" onclick="addToCart('Запечённый ролл с креветками', 499, 'baked-shrimp.jpg')">В корзину</button>
                         </div>
                     </div>
                 </div>
@@ -675,7 +718,13 @@
                     <img src="maki-set.jpg" alt="Маки сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Маки сэт</div>
-                        <div class="item-desc">32 штуки - разнообразие маки роллов</div>
+                        <div class="item-weight">⚖️ 630г (32 шт)</div>
+                        <div class="item-desc">
+                            • Сакэ маки ролл - 8шт<br>
+                            • Эби маки ролл - 8шт<br>
+                            • Каппа маки ролл - 8шт<br>
+                            • Авокадо маки ролл - 8шт
+                        </div>
                         <div class="item-footer">
                             <div class="item-price">999 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Маки сэт', 999, 'maki-set.jpg')">В корзину</button>
@@ -687,7 +736,13 @@
                     <img src="sun-set.jpg" alt="Сан сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сан сэт</div>
-                        <div class="item-desc">32 штуки - популярный набор</div>
+                        <div class="item-weight">⚖️ 755г (32 шт)</div>
+                        <div class="item-desc">
+                            • Филадельфия ролл - 8шт<br>
+                            • Калифорния ролл - 8шт<br>
+                            • Сакэ авокадо ролл - 8шт<br>
+                            • Каппа маки ролл - 8шт
+                        </div>
                         <div class="item-footer">
                             <div class="item-price">1500 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Сан сэт', 1500, 'sun-set.jpg')">В корзину</button>
@@ -699,7 +754,15 @@
                     <img src="moonlight-set.jpg" alt="Мун лайт сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Мун лайт сэт</div>
-                        <div class="item-desc">48 штук - большой набор для компании</div>
+                        <div class="item-weight">⚖️ 1165г (48 шт)</div>
+                        <div class="item-desc">
+                            • Сурими ролл - 8шт<br>
+                            • Сэндай ролл - 8шт<br>
+                            • Филадельфия ролл - 8шт<br>
+                            • Сакэ авокадо ролл - 8шт<br>
+                            • Авокадо маки ролл - 8шт<br>
+                            • Каппа маки ролл - 8шт
+                        </div>
                         <div class="item-footer">
                             <div class="item-price">2250 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Мун лайт сэт', 2250, 'moonlight-set.jpg')">В корзину</button>
@@ -717,7 +780,7 @@
                     <img src="soy-sauce.jpg" alt="Соевый соус" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Соевый соус</div>
-                        <div class="item-desc">1 шт</div>
+                        <div class="item-weight">⚖️ 30мл (1 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">30 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Соевый соус', 30, 'soy-sauce.jpg')">В корзину</button>
@@ -729,7 +792,7 @@
                     <img src="ginger.jpg" alt="Имбирь" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Имбирь</div>
-                        <div class="item-desc">1 шт</div>
+                        <div class="item-weight">⚖️ 30г (1 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">30 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Имбирь', 30, 'ginger.jpg')">В корзину</button>
@@ -741,7 +804,7 @@
                     <img src="wasabi.jpg" alt="Васаби" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Васаби</div>
-                        <div class="item-desc">1 шт</div>
+                        <div class="item-weight">⚖️ 30г (1 шт)</div>
                         <div class="item-footer">
                             <div class="item-price">30 ₽</div>
                             <button class="add-to-cart" onclick="addToCart('Васаби', 30, 'wasabi.jpg')">В корзину</button>
@@ -876,9 +939,9 @@
             <!-- Контроль качества -->
             <div class="info-block">
                 <h3><i class="fas fa-check-circle"></i> Контроль качества</h3>
-                <p><strong>Компания Cityfood</strong> при производстве указанных в меню блюд соблюдает все нормы и правила СанПиН, правила товарного соседства, условия хранения и сроки годности продуктов.</p>
-                <p>В <strong>Компании Cityfood</strong> строго соблюдается Программа производственного контроля на предприятиях общественного питания.</p>
-                <p>Со своей стороны — потребитель, совершая заказ в <strong>Компании Cityfood</strong>, обязуется соблюдать указанные выше рекомендации по хранению и показаниям к употреблению, в противном случае <strong>Компания Cityfood</strong> не несёт ответственности за причинение ущерба.</p>
+                <p><strong>Ресторан Cityfood</strong> при производстве указанных в меню блюд соблюдает все нормы и правила СанПиН, правила товарного соседства, условия хранения и сроки годности продуктов.</p>
+                <p>В <strong>Ресторане Cityfood</strong> строго соблюдается Программа производственного контроля на предприятиях общественного питания.</p>
+                <p>Со своей стороны — потребитель, совершая заказ в <strong>Ресторане Cityfood</strong>, обязуется соблюдать указанные выше рекомендации по хранению и показаниям к употреблению, в противном случае <strong>Ресторан Cityfood</strong> не несёт ответственности за причинение ущерба.</p>
             </div>
         </div>
     </section>
@@ -1058,7 +1121,3 @@
 
 </body>
 </html>
-
-
-
-
