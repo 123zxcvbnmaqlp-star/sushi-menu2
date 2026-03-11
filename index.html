@@ -525,88 +525,91 @@
 
         <!-- Роллы -->
         <div class="menu-category">
-            <div class="category-header">🍣 Роллы</div>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="california-roll.jpg" alt="Калифорния ролл" loading="lazy" onclick="openLightbox(this.src)">
-                    <div class="item-content">
-                        <div class="item-name">Калифорния ролл</div>
-                        <div class="item-weight">⚖️ 235г (8 шт)</div>
-                        <div class="item-desc">Краб, огурец, авокадо, икра масаго</div>
-                        <div class="item-footer">
-                            <div class="item-price">449 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Калифорния ролл', 449, 'california-roll.jpg')">В корзину</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <img src="philadelphia-roll.jpg" alt="Филадельфия ролл" loading="lazy" onclick="openLightbox(this.src)">
-                    <div class="item-content">
-                        <div class="item-name">Филадельфия ролл</div>
-                        <div class="item-weight">⚖️ 210г (8 шт)</div>
-                        <div class="item-desc">Творожный сыр, огурец, лосось</div>
-                        <div class="item-footer">
-                            <div class="item-price">499 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Филадельфия ролл', 499, 'philadelphia-roll.jpg')">В корзину</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <img src="kyoto-roll.jpg" alt="Киото ролл" loading="lazy" onclick="openLightbox(this.src)">
-                    <div class="item-content">
-                        <div class="item-name">Киото ролл</div>
-                        <div class="item-weight">⚖️ 220г (8 шт)</div>
-                        <div class="item-desc">Жареный лосось, томат, салат свежий</div>
-                        <div class="item-footer">
-                            <div class="item-price">449 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Киото ролл', 449, 'kyoto-roll.jpg')">В корзину</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <img src="surimi-roll.jpg" alt="Сурими ролл" loading="lazy" onclick="openLightbox(this.src)">
-                    <div class="item-content">
-                        <div class="item-name">Сурими ролл</div>
-                        <div class="item-weight">⚖️ 240г (8 шт)</div>
-                        <div class="item-desc">Лосось, краб, творожный сыр, авокадо</div>
-                        <div class="item-footer">
-                            <div class="item-price">449 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Сурими ролл', 449, 'surimi-roll.jpg')">В корзину</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <img src="sake-avocado.jpg" alt="Сакэ авокадо ролл" loading="lazy" onclick="openLightbox(this.src)">
-                    <div class="item-content">
-                        <div class="item-name">Сакэ авокадо ролл</div>
-                        <div class="item-weight">⚖️ 180г (8 шт)</div>
-                        <div class="item-desc">Лосось, авокадо, пикантный соус</div>
-                        <div class="item-footer">
-                            <div class="item-price">449 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Сакэ авокадо ролл', 449, 'sake-avocado.jpg')">В корзину</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-item">
-                    <img src="sunday-roll.jpg" alt="Сэндай ролл" loading="lazy" onclick="openLightbox(this.src)">
-                    <div class="item-content">
-                        <div class="item-name">Сэндай ролл</div>
-                        <div class="item-weight">⚖️ 235г (8 шт)</div>
-                        <div class="item-desc">Тигровая креветка, творожный сыр, манго, икра масаго</div>
-                        <div class="item-footer">
-                            <div class="item-price">499 ₽</div>
-                            <button class="add-to-cart" onclick="addToCart('Сэндай ролл', 499, 'sunday-roll.jpg')">В корзину</button>
-                        </div>
-                    </div>
+    <div class="category-header">🍣 Роллы</div>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <img src="california-roll.jpg" alt="Калифорния ролл" loading="lazy" onclick="openLightbox(this.src)">
+            <div class="item-content">
+                <div class="item-name">Калифорния ролл</div>
+                <div class="item-weight">⚖️ 230г (8 шт)</div>
+                <div class="item-desc">Краб, огурец, авокадо, икра масаго</div>
+                <div class="item-price">449 ₽</div>
+                <div class="item-footer">
+                    <button class="add-to-cart" onclick="addToCart('Калифорния ролл', 449, 'california-roll.jpg')">В корзину</button>
                 </div>
             </div>
         </div>
 
+        <div class="menu-item">
+            <span class="sale-badge">🔥 АКЦИЯ</span>
+            <img src="philadelphia-roll.jpg" alt="Филадельфия ролл" loading="lazy" onclick="openLightbox(this.src)">
+            <div class="item-content">
+                <div class="item-name">Филадельфия ролл</div>
+                <div class="item-weight">⚖️ 250г (8 шт)</div>
+                <div class="item-desc">Творожный сыр, огурец, лосось</div>
+                <div class="item-prices">
+                    <span class="item-price-old">599 ₽</span>
+                    <span class="item-price-new">499 ₽</span>
+                </div>
+                <div class="item-footer">
+                    <button class="add-to-cart" onclick="addToCart('Филадельфия ролл', 499, 'philadelphia-roll.jpg')">В корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="kyoto-roll.jpg" alt="Киото ролл" loading="lazy" onclick="openLightbox(this.src)">
+            <div class="item-content">
+                <div class="item-name">Киото ролл</div>
+                <div class="item-weight">⚖️ 240г (8 шт)</div>
+                <div class="item-desc">Жареный лосось, томат, салат свежий</div>
+                <div class="item-price">449 ₽</div>
+                <div class="item-footer">
+                    <button class="add-to-cart" onclick="addToCart('Киото ролл', 449, 'kyoto-roll.jpg')">В корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="surimi-roll.jpg" alt="Сурими ролл" loading="lazy" onclick="openLightbox(this.src)">
+            <div class="item-content">
+                <div class="item-name">Сурими ролл</div>
+                <div class="item-weight">⚖️ 240г (8 шт)</div>
+                <div class="item-desc">Лосось, краб, творожный сыр, авокадо</div>
+                <div class="item-price">449 ₽</div>
+                <div class="item-footer">
+                    <button class="add-to-cart" onclick="addToCart('Сурими ролл', 449, 'surimi-roll.jpg')">В корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="sake-avocado.jpg" alt="Сакэ авокадо ролл" loading="lazy" onclick="openLightbox(this.src)">
+            <div class="item-content">
+                <div class="item-name">Сакэ авокадо ролл</div>
+                <div class="item-weight">⚖️ 235г (8 шт)</div>
+                <div class="item-desc">Лосось, авокадо, пикантный соус</div>
+                <div class="item-price">449 ₽</div>
+                <div class="item-footer">
+                    <button class="add-to-cart" onclick="addToCart('Сакэ авокадо ролл', 449, 'sake-avocado.jpg')">В корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="sunday-roll.jpg" alt="Сэндай ролл" loading="lazy" onclick="openLightbox(this.src)">
+            <div class="item-content">
+                <div class="item-name">Сэндай ролл</div>
+                <div class="item-weight">⚖️ 245г (8 шт)</div>
+                <div class="item-desc">Тигровая креветка, творожный сыр, манго, икра масаго</div>
+                <div class="item-price">499 ₽</div>
+                <div class="item-footer">
+                    <button class="add-to-cart" onclick="addToCart('Сэндай ролл', 499, 'sunday-roll.jpg')">В корзину</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
         <!-- Маки роллы -->
         <div class="menu-category">
             <div class="category-header">🥢 Маки роллы</div>
@@ -1125,6 +1128,7 @@
 
 </body>
 </html>
+
 
 
 
