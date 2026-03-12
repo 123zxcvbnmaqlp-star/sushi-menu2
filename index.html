@@ -210,13 +210,54 @@
             justify-content: space-between; 
             align-items: center;
             margin-top: auto;
+            gap: 0.5rem;
+        }
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--light);
+            border-radius: 25px;
+            padding: 0.3rem;
+        }
+        .qty-btn {
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 50%;
+            background: var(--japan-red);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .qty-btn:hover { background: #8b0000; transform: scale(1.1); }
+        .qty-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        .qty-value {
+            font-weight: bold;
+            min-width: 20px;
+            text-align: center;
+            color: var(--dark);
         }
         .add-to-cart {
             background: var(--japan-red); color: white; border: none;
-            padding: 0.7rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: bold;
-            transition: all 0.3s;
+            padding: 0.7rem 1.2rem; border-radius: 25px; cursor: pointer; font-weight: bold;
+            transition: all 0.3s; display: flex; align-items: center; gap: 0.3rem;
         }
         .add-to-cart:hover { background: #8b0000; transform: scale(1.05); }
+        .add-to-cart.added { background: #28a745; }
+        .cart-badge {
+            background: var(--gold);
+            color: var(--dark);
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
 
         /* ДОСТАВКА */
         .delivery {
@@ -494,6 +535,25 @@
             background: var(--light); border-radius: 10px; align-items: center;
         }
         .cart-item img { width: 70px; height: 70px; object-fit: contain; background: #f9f9f9; padding: 5px; border-radius: 8px; }
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .cart-qty-btn {
+            width: 24px;
+            height: 24px;
+            border: none;
+            border-radius: 50%;
+            background: var(--japan-red);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .cart-qty-btn:hover { background: #8b0000; }
+        .cart-qty { font-weight: bold; min-width: 20px; text-align: center; }
         .checkout-buttons {
             display: grid;
             grid-template-columns: 1fr;
@@ -549,6 +609,8 @@
             .delivery-grid { grid-template-columns: 1fr; }
             .info-block { padding: 1.5rem; }
             .info-table { font-size: 0.9rem; }
+            .item-footer { flex-wrap: wrap; }
+            .quantity-control { margin-right: auto; }
         }
     </style>
 </head>
@@ -581,7 +643,7 @@
         <div class="menu-category">
             <div class="category-header">🍣 Роллы</div>
             <div class="menu-grid">
-                <div class="menu-item">
+                <div class="menu-item" data-id="california-roll">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="california-roll.jpg" alt="Калифорния ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -593,12 +655,19 @@
                             <span class="item-price-new">449 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Калифорния ролл', 449, 'california-roll.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('california-roll', -1)">−</button>
+                                <span class="qty-value" id="qty-california-roll">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('california-roll', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-california-roll" onclick="addToCart('Калифорния ролл', 449, 'california-roll.jpg', 'california-roll')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="philadelphia-roll">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="philadelphia-roll.jpg" alt="Филадельфия ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -610,12 +679,19 @@
                             <span class="item-price-new">499 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Филадельфия ролл', 499, 'philadelphia-roll.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('philadelphia-roll', -1)">−</button>
+                                <span class="qty-value" id="qty-philadelphia-roll">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('philadelphia-roll', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-philadelphia-roll" onclick="addToCart('Филадельфия ролл', 499, 'philadelphia-roll.jpg', 'philadelphia-roll')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="kyoto-roll">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="kyoto-roll.jpg" alt="Киото ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -627,12 +703,19 @@
                             <span class="item-price-new">449 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Киото ролл', 449, 'kyoto-roll.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('kyoto-roll', -1)">−</button>
+                                <span class="qty-value" id="qty-kyoto-roll">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('kyoto-roll', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-kyoto-roll" onclick="addToCart('Киото ролл', 449, 'kyoto-roll.jpg', 'kyoto-roll')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="surimi-roll">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="surimi-roll.jpg" alt="Сурими ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -644,12 +727,19 @@
                             <span class="item-price-new">449 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Сурими ролл', 449, 'surimi-roll.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('surimi-roll', -1)">−</button>
+                                <span class="qty-value" id="qty-surimi-roll">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('surimi-roll', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-surimi-roll" onclick="addToCart('Сурими ролл', 449, 'surimi-roll.jpg', 'surimi-roll')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="sake-avocado">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="sake-avocado.jpg" alt="Сакэ авокадо ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -661,12 +751,19 @@
                             <span class="item-price-new">449 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Сакэ авокадо ролл', 449, 'sake-avocado.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('sake-avocado', -1)">−</button>
+                                <span class="qty-value" id="qty-sake-avocado">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('sake-avocado', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-sake-avocado" onclick="addToCart('Сакэ авокадо ролл', 449, 'sake-avocado.jpg', 'sake-avocado')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="sunday-roll">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="sunday-roll.jpg" alt="Сэндай ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -678,7 +775,14 @@
                             <span class="item-price-new">499 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Сэндай ролл', 499, 'sunday-roll.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('sunday-roll', -1)">−</button>
+                                <span class="qty-value" id="qty-sunday-roll">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('sunday-roll', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-sunday-roll" onclick="addToCart('Сэндай ролл', 499, 'sunday-roll.jpg', 'sunday-roll')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -689,7 +793,7 @@
         <div class="menu-category">
             <div class="category-header">🥢 Маки роллы</div>
             <div class="menu-grid">
-                <div class="menu-item">
+                <div class="menu-item" data-id="kappa-maki">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="kappa-maki.jpg" alt="Каппа маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -701,12 +805,19 @@
                             <span class="item-price-new">199 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Каппа маки ролл', 199, 'kappa-maki.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('kappa-maki', -1)">−</button>
+                                <span class="qty-value" id="qty-kappa-maki">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('kappa-maki', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-kappa-maki" onclick="addToCart('Каппа маки ролл', 199, 'kappa-maki.jpg', 'kappa-maki')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="ebi-maki">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="ebi-maki.jpg" alt="Эби маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -718,12 +829,19 @@
                             <span class="item-price-new">299 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Эби маки ролл', 299, 'ebi-maki.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('ebi-maki', -1)">−</button>
+                                <span class="qty-value" id="qty-ebi-maki">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('ebi-maki', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-ebi-maki" onclick="addToCart('Эби маки ролл', 299, 'ebi-maki.jpg', 'ebi-maki')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="avocado-maki">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="avocado-maki.jpg" alt="Авокадо маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -735,12 +853,19 @@
                             <span class="item-price-new">199 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Авокадо маки ролл', 199, 'avocado-maki.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('avocado-maki', -1)">−</button>
+                                <span class="qty-value" id="qty-avocado-maki">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('avocado-maki', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-avocado-maki" onclick="addToCart('Авокадо маки ролл', 199, 'avocado-maki.jpg', 'avocado-maki')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="sake-maki">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="sake-maki.jpg" alt="Сакэ маки ролл" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -752,7 +877,14 @@
                             <span class="item-price-new">249 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Сакэ маки ролл', 249, 'sake-maki.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('sake-maki', -1)">−</button>
+                                <span class="qty-value" id="qty-sake-maki">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('sake-maki', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-sake-maki" onclick="addToCart('Сакэ маки ролл', 249, 'sake-maki.jpg', 'sake-maki')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -763,7 +895,7 @@
         <div class="menu-category">
             <div class="category-header">🔥 Запечёные роллы</div>
             <div class="menu-grid">
-                <div class="menu-item">
+                <div class="menu-item" data-id="baked-crab">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="baked-rolls.jpg" alt="Запечённый ролл с крабом" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -775,12 +907,19 @@
                             <span class="item-price-new">499 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Запечённый ролл с крабом', 499, 'baked-rolls.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('baked-crab', -1)">−</button>
+                                <span class="qty-value" id="qty-baked-crab">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('baked-crab', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-baked-crab" onclick="addToCart('Запечённый ролл с крабом', 499, 'baked-rolls.jpg', 'baked-crab')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="baked-salmon">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="baked-rolls.jpg" alt="Запечённый ролл с лососем" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -792,12 +931,19 @@
                             <span class="item-price-new">499 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Запечённый ролл с лососем', 499, 'baked-rolls.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('baked-salmon', -1)">−</button>
+                                <span class="qty-value" id="qty-baked-salmon">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('baked-salmon', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-baked-salmon" onclick="addToCart('Запечённый ролл с лососем', 499, 'baked-rolls.jpg', 'baked-salmon')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="baked-shrimp">
                     <span class="sale-badge">🔥 АКЦИЯ</span>
                     <img src="baked-rolls.jpg" alt="Запечённый ролл с креветками" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
@@ -809,7 +955,14 @@
                             <span class="item-price-new">499 ₽</span>
                         </div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Запечённый ролл с креветками', 499, 'baked-rolls.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('baked-shrimp', -1)">−</button>
+                                <span class="qty-value" id="qty-baked-shrimp">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('baked-shrimp', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-baked-shrimp" onclick="addToCart('Запечённый ролл с креветками', 499, 'baked-rolls.jpg', 'baked-shrimp')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -820,7 +973,7 @@
         <div class="menu-category">
             <div class="category-header">🎁 Сеты</div>
             <div class="menu-grid">
-                <div class="menu-item">
+                <div class="menu-item" data-id="maki-set">
                     <img src="maki-set.jpg" alt="Маки сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Маки сэт</div>
@@ -833,12 +986,19 @@
                         </div>
                         <div class="item-price">999 ₽</div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Маки сэт', 999, 'maki-set.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('maki-set', -1)">−</button>
+                                <span class="qty-value" id="qty-maki-set">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('maki-set', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-maki-set" onclick="addToCart('Маки сэт', 999, 'maki-set.jpg', 'maki-set')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="sun-set">
                     <img src="sun-set.jpg" alt="Сан сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Сан сэт</div>
@@ -851,12 +1011,19 @@
                         </div>
                         <div class="item-price">1500 ₽</div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Сан сэт', 1500, 'sun-set.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('sun-set', -1)">−</button>
+                                <span class="qty-value" id="qty-sun-set">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('sun-set', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-sun-set" onclick="addToCart('Сан сэт', 1500, 'sun-set.jpg', 'sun-set')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="moonlight-set">
                     <img src="moonlight-set.jpg" alt="Мун лайт сэт" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Мун лайт сэт</div>
@@ -871,7 +1038,14 @@
                         </div>
                         <div class="item-price">2250 ₽</div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Мун лайт сэт', 2250, 'moonlight-set.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('moonlight-set', -1)">−</button>
+                                <span class="qty-value" id="qty-moonlight-set">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('moonlight-set', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-moonlight-set" onclick="addToCart('Мун лайт сэт', 2250, 'moonlight-set.jpg', 'moonlight-set')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -882,38 +1056,59 @@
         <div class="menu-category">
             <div class="category-header">🥢 Соусы и добавки</div>
             <div class="menu-grid">
-                <div class="menu-item">
+                <div class="menu-item" data-id="soy-sauce">
                     <img src="soy-sauce.jpg" alt="Соевый соус" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Соевый соус</div>
                         <div class="item-weight">⚖️ 30мл (1 шт)</div>
                         <div class="item-price">30 ₽</div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Соевый соус', 30, 'soy-sauce.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('soy-sauce', -1)">−</button>
+                                <span class="qty-value" id="qty-soy-sauce">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('soy-sauce', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-soy-sauce" onclick="addToCart('Соевый соус', 30, 'soy-sauce.jpg', 'soy-sauce')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="ginger">
                     <img src="ginger.jpg" alt="Имбирь" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Имбирь</div>
                         <div class="item-weight">⚖️ 30г (1 шт)</div>
                         <div class="item-price">30 ₽</div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Имбирь', 30, 'ginger.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('ginger', -1)">−</button>
+                                <span class="qty-value" id="qty-ginger">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('ginger', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-ginger" onclick="addToCart('Имбирь', 30, 'ginger.jpg', 'ginger')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item" data-id="wasabi">
                     <img src="wasabi.jpg" alt="Васаби" loading="lazy" onclick="openLightbox(this.src)">
                     <div class="item-content">
                         <div class="item-name">Васаби</div>
                         <div class="item-weight">⚖️ 30г (1 шт)</div>
                         <div class="item-price">30 ₽</div>
                         <div class="item-footer">
-                            <button class="add-to-cart" onclick="addToCart('Васаби', 30, 'wasabi.jpg')">В корзину</button>
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" onclick="changeQty('wasabi', -1)">−</button>
+                                <span class="qty-value" id="qty-wasabi">0</span>
+                                <button class="qty-btn plus" onclick="changeQty('wasabi', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart" id="btn-wasabi" onclick="addToCart('Васаби', 30, 'wasabi.jpg', 'wasabi')">
+                                <i class="fas fa-cart-plus"></i> В корзину
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1122,15 +1317,49 @@
     <a href="https://t.me/+789284560457" class="telegram-float" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
 
     <script>
-        let cart = [];
+        // Корзина: объект с товарами {id: {name, price, image, qty}}
+        let cart = {};
 
-        function addToCart(name, price, image) {
-            cart.push({name, price, image});
-            updateCart();
-            showNotification(name);
+        // Изменить количество товара на карточке
+        function changeQty(id, delta) {
+            const qtyEl = document.getElementById(`qty-${id}`);
+            let qty = parseInt(qtyEl.textContent) || 0;
+            qty = Math.max(0, qty + delta);
+            qtyEl.textContent = qty;
+            
+            const btn = document.getElementById(`btn-${id}`);
+            if (qty > 0) {
+                btn.classList.add('added');
+                btn.innerHTML = `<i class="fas fa-check"></i> В корзине: ${qty}`;
+            } else {
+                btn.classList.remove('added');
+                btn.innerHTML = `<i class="fas fa-cart-plus"></i> В корзину`;
+            }
         }
 
-        function showNotification(itemName) {
+        // Добавить товар в корзину
+        function addToCart(name, price, image, id) {
+            const qtyEl = document.getElementById(`qty-${id}`);
+            let qty = parseInt(qtyEl.textContent) || 1;
+            
+            if (cart[id]) {
+                cart[id].qty += qty;
+            } else {
+                cart[id] = { name, price, image, qty };
+            }
+            
+            // Сбросить счётчик на карточке
+            qtyEl.textContent = '0';
+            const btn = document.getElementById(`btn-${id}`);
+            btn.classList.remove('added');
+            btn.innerHTML = `<i class="fas fa-cart-plus"></i> В корзину`;
+            
+            updateCart();
+            showNotification(name, qty);
+        }
+
+        // Показать уведомление
+        function showNotification(itemName, qty) {
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed;
@@ -1151,7 +1380,7 @@
                 <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
                 <div>
                     <div style="font-weight: bold;">Добавлено в корзину!</div>
-                    <div style="font-size: 0.9rem; opacity: 0.9;">${itemName}</div>
+                    <div style="font-size: 0.9rem; opacity: 0.9;">${itemName} × ${qty}</div>
                 </div>
             `;
             
@@ -1163,28 +1392,56 @@
             }, 3000);
         }
 
+        // Обновить отображение корзины
         function updateCart() {
-            document.getElementById('cartCount').textContent = cart.length;
             const items = document.getElementById('cartItems');
             const total = document.getElementById('cartTotal');
+            const cartCount = document.getElementById('cartCount');
             
-            if (cart.length === 0) {
+            // Считаем общее количество товаров
+            const totalQty = Object.values(cart).reduce((sum, item) => sum + item.qty, 0);
+            cartCount.textContent = totalQty;
+            
+            if (Object.keys(cart).length === 0) {
                 items.innerHTML = '<p style="text-align:center; padding:2rem; color:#999;">🛒 Корзина пуста</p>';
                 total.style.display = 'none';
             } else {
-                items.innerHTML = cart.map((item, i) => `
+                items.innerHTML = Object.entries(cart).map(([id, item]) => `
                     <div class="cart-item">
                         <img src="${item.image}" alt="${item.name}">
                         <div style="flex:1">
                             <div style="font-weight:bold">${item.name}</div>
-                            <div style="color:var(--japan-red); font-weight:bold">${item.price} ₽</div>
+                            <div style="color:var(--japan-red); font-weight:bold">${item.price} ₽ × ${item.qty} = ${item.price * item.qty} ₽</div>
+                            <div class="cart-item-controls">
+                                <button class="cart-qty-btn" onclick="updateCartQty('${id}', -1)">−</button>
+                                <span class="cart-qty">${item.qty}</span>
+                                <button class="cart-qty-btn" onclick="updateCartQty('${id}', 1)">+</button>
+                                <button onclick="removeFromCart('${id}')" style="margin-left:auto;background:#ff6b6b;color:white;border:none;padding:0.3rem 0.8rem;border-radius:15px;cursor:pointer;font-size:0.9rem">✕</button>
+                            </div>
                         </div>
-                        <button onclick="cart.splice(${i},1);updateCart()" style="background:#ff6b6b;color:white;border:none;padding:0.5rem;border-radius:5px;cursor:pointer">✕</button>
                     </div>
                 `).join('');
                 total.style.display = 'block';
-                document.getElementById('totalPrice').textContent = cart.reduce((sum, item) => sum + item.price, 0);
+                document.getElementById('totalPrice').textContent = 
+                    Object.values(cart).reduce((sum, item) => sum + item.price * item.qty, 0);
             }
+        }
+
+        // Изменить количество в корзине
+        function updateCartQty(id, delta) {
+            if (cart[id]) {
+                cart[id].qty += delta;
+                if (cart[id].qty <= 0) {
+                    delete cart[id];
+                }
+                updateCart();
+            }
+        }
+
+        // Удалить товар из корзины
+        function removeFromCart(id) {
+            delete cart[id];
+            updateCart();
         }
 
         function openCart() {
@@ -1197,10 +1454,10 @@
         });
 
         function checkout(method) {
-            if (cart.length === 0) return;
+            if (Object.keys(cart).length === 0) return;
             
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-            const orderText = cart.map(i => `${i.name} - ${i.price}₽`).join('%0A');
+            const total = Object.values(cart).reduce((sum, item) => sum + item.price * item.qty, 0);
+            const orderText = Object.values(cart).map(i => `${i.name} × ${i.qty} = ${i.price * i.qty}₽`).join('%0A');
             const message = `🍣 Новый заказ Cityfood%0A%0A${orderText}%0A%0A💰 Итого: ${total}₽%0A%0A📍 Адрес: (укажите)%0A📞 Телефон: (укажите)`;
             
             let url = '';
